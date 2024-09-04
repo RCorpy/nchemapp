@@ -1,6 +1,6 @@
 extends Control
 
-
+var COLLECTION_ID = "panda_stats"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
@@ -33,6 +33,7 @@ func on_login_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Loggin Succeeded"
 	Firebase.Auth.save_auth(auth)
+	save_data()
 	
 func on_signup_succeeded(auth):
 	print(auth)
@@ -46,6 +47,20 @@ func on_login_failed(error_code, message):
 
 	
 func on_signup_failed(error_code, message):
-		print(error_code)
-		print(message)
-		%StateLabel.text = "Signup failed. Error: %s" % message
+	print(error_code)
+	print(message)
+	%StateLabel.text = "Signup failed. Error: %s" % message
+
+func save_data():
+	var auth = Firebase.Auth.auth
+	
+	if auth.localid:
+		var collection = await Firebase.Firestore.collection("usuarios")
+		var stringID = "asdsa"
+		
+		var data = {
+			"panda_name": "achoo",
+			"petting_count": 4
+		}
+		collection.add(stringID, data)
+
