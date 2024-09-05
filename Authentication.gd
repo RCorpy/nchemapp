@@ -33,7 +33,8 @@ func on_login_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Loggin Succeeded"
 	Firebase.Auth.save_auth(auth)
-	save_data()
+	#save_data()
+	get_tree().change_scene_to_file("res://main_menu.tscn")
 	
 func on_signup_succeeded(auth):
 	print(auth)
@@ -55,12 +56,21 @@ func save_data():
 	var auth = Firebase.Auth.auth
 	
 	if auth.localid:
+		pass
+	if false:
 		var collection = await Firebase.Firestore.collection("usuarios")
-		var stringID = "asdsa"
+		var stringID: String = "asdsa2"
 		
 		var data = {
-			"panda_name": "achoo",
-			"petting_count": 4
+			"panda_name": "achu",
+			"petting_count": 777
 		}
-		collection.add(stringID, data)
+		# collection.add(stringID, data)
+
+		var oneDoc = await collection.get_doc(stringID)
+		oneDoc.add_or_update_field("petting_count", 789)
+		collection.update(oneDoc)
+		
+		var twoDoc = await collection.get_doc("testingfalsedoc")
+		print(twoDoc)
 

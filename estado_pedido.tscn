@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://dywgquforgmb8"]
+
+[ext_resource type="Texture2D" uid="uid://dgy84goj6kesh" path="res://go-back-svgrepo-com.svg" id="1_hf41i"]
+[ext_resource type="Script" path="res://estado_pedido.gd" id="1_hvc3e"]
+[ext_resource type="Theme" uid="uid://byii4p3tg2w6i" path="res://vboxtheme.tres" id="2_5644i"]
+
+[node name="EstadoPedido" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvc3e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 42
+text = "ESTADO DEL PEDIDO"
+
+[node name="GoBackButton" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("1_hf41i")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_5644i")
+
+[node name="NombreYProveedor" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 33
+text = "NOMBRE-PROVEEDOR
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CantidadSpinBox" type="SpinBox" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "en"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+popup/item_0/text = "Kg"
+popup/item_0/id = 0
+popup/item_1/text = "Litros"
+popup/item_1/id = 1
+popup/item_2/text = "Unidades"
+popup/item_2/id = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Estado:"
+
+[node name="StatusSituation" type="OptionButton" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Sin Procesar"
+popup/item_0/id = 0
+popup/item_1/text = "Consultado"
+popup/item_1/id = 1
+popup/item_2/text = "Pedido"
+popup/item_2/id = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Llegada prevista"
+
+[node name="ETALabel" type="LineEdit" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "25/12/24"
+max_length = 16
+expand_to_text_length = true
+
+[node name="PagadoLabel" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+item_count = 2
+selected = 1
+popup/item_0/text = "Pagado"
+popup/item_0/id = 0
+popup/item_1/text = "Sin Pagar"
+popup/item_1/id = 1
+
+[node name="ModificarButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+text = "Modificar"
+
+[connection signal="pressed" from="VBoxContainer/Menu/GoBackButton" to="." method="_on_go_back_button_pressed"]

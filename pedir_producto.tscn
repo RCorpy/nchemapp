@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7t33fqcx1pvh"]
+
+[ext_resource type="Texture2D" uid="uid://dgy84goj6kesh" path="res://go-back-svgrepo-com.svg" id="1_5pngx"]
+[ext_resource type="Script" path="res://pedir_producto.gd" id="1_c8o33"]
+
+[node name="PedirProducto" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8o33")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="VBoxContainer2/Menu"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 48
+text = "PEDIR PRODUCTO"
+
+[node name="GoBackButton" type="Button" parent="VBoxContainer2/Menu"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+icon = ExtResource("1_5pngx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Producto"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+item_count = 2
+selected = 0
+popup/item_0/text = "TestProduct"
+popup/item_0/id = 0
+popup/item_1/text = "TestProduct2"
+popup/item_1/id = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Cantidad"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "PEDIR"
+
+[connection signal="pressed" from="VBoxContainer2/Menu/GoBackButton" to="." method="_on_go_back_button_pressed"]

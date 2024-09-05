@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2uckcam26mis"]
+
+[ext_resource type="Script" path="res://crear_producto.gd" id="1_gd3cg"]
+[ext_resource type="Texture2D" uid="uid://dgy84goj6kesh" path="res://go-back-svgrepo-com.svg" id="1_xd7so"]
+[ext_resource type="Theme" uid="uid://byii4p3tg2w6i" path="res://vboxtheme.tres" id="2_u3n57"]
+
+[node name="CrearProducto" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gd3cg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 48
+text = "CREAR PRODUCTO"
+
+[node name="GoBackButton" type="Button" parent="VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("1_xd7so")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("2_u3n57")
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nombre del producto"
+
+[node name="NombreLineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tiempo estimado de entrega (dias)"
+
+[node name="ETASpinBox" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Precio"
+
+[node name="PriceSpinBox" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Contenedores y unidades"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
+selected = 0
+popup/item_0/text = "Bidon"
+popup/item_0/id = 0
+
+[node name="OptionButton2" type="OptionButton" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
+selected = 0
+popup/item_0/text = "Kg"
+popup/item_0/id = 0
+
+[node name="Label5" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Proveedores
+"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "Jaber"
+popup/item_0/id = 0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 62
+text = "Crear Producto"
+
+[connection signal="pressed" from="VBoxContainer/Menu/GoBackButton" to="." method="_on_go_back_button_pressed"]
