@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c7nbvvnu5juxg"]
+
+[node name="ListItemButton" type="Button"]
+size_flags_vertical = 3
+text = " "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nombre" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "HOLA"
+
+[node name="ETA" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "2123	"
+
+[node name="Cantidad" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "53423"

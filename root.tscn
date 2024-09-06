@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1dsuodx1fr7s"]
+[gd_scene load_steps=6 format=3 uid="uid://b1dsuodx1fr7s"]
 
 [ext_resource type="PackedScene" uid="uid://bjlrtweiqwmxw" path="res://authentication.tscn" id="1_qih0j"]
 [ext_resource type="PackedScene" uid="uid://c7t33fqcx1pvh" path="res://pedir_producto.tscn" id="2_bjhl0"]
 [ext_resource type="PackedScene" uid="uid://d2uckcam26mis" path="res://crear_producto.tscn" id="3_unc1a"]
 [ext_resource type="PackedScene" uid="uid://dywgquforgmb8" path="res://estado_pedido.tscn" id="4_4pdpn"]
 [ext_resource type="PackedScene" uid="uid://bc62nbsceqs8c" path="res://main_menu.tscn" id="5_f1mai"]
-[ext_resource type="Script" path="res://main_menu.gd" id="6_xwtmo"]
 
 [node name="Root" type="Node"]
 
@@ -18,4 +17,3 @@
 [node name="EstadoPedido" parent="." instance=ExtResource("4_4pdpn")]
 
 [node name="MainMenu" parent="." instance=ExtResource("5_f1mai")]
-script = ExtResource("6_xwtmo")

@@ -55,5 +55,9 @@ size_flags_horizontal = 10
 text = "CANTIDAD
 "
 
+[node name="ListContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PedirButton" to="." method="_on_pedir_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/CrearProductoButton" to="." method="_on_crear_producto_button_pressed"]
