@@ -66,7 +66,6 @@ text = "Precio"
 [node name="PriceSpinBox" type="SpinBox" parent="VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-step = 0.01
 
 [node name="Label4" type="Label" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2

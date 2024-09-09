@@ -44,6 +44,7 @@ size_flags_vertical = 3
 theme = ExtResource("2_5644i")
 
 [node name="NombreYProveedor" type="Label" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -55,36 +56,28 @@ text = "NOMBRE-PROVEEDOR
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CantidadSpinBox" type="SpinBox" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "en"
+text = "Cantidad"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="CantidadSpinBox" type="SpinBox" parent="VBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 3
-popup/item_0/text = "Kg"
-popup/item_0/id = 0
-popup/item_1/text = "Litros"
-popup/item_1/id = 1
-popup/item_2/text = "Unidades"
-popup/item_2/id = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Status" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 text = "Estado:"
 
 [node name="StatusSituation" type="OptionButton" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 4
 item_count = 3
 selected = 0
 popup/item_0/text = "Sin Procesar"
@@ -100,13 +93,15 @@ size_flags_horizontal = 4
 text = "Llegada prevista"
 
 [node name="ETALabel" type="LineEdit" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "25/12/24"
 max_length = 16
 expand_to_text_length = true
 
-[node name="PagadoLabel" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
+[node name="PagadoOption" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 item_count = 2
@@ -114,6 +109,17 @@ selected = 1
 popup/item_0/text = "Pagado"
 popup/item_0/id = 0
 popup/item_1/text = "Sin Pagar"
+popup/item_1/id = 1
+
+[node name="CompletedOption" type="OptionButton" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+item_count = 2
+selected = 1
+popup/item_0/text = "Completado"
+popup/item_0/id = 0
+popup/item_1/text = "Pendiente"
 popup/item_1/id = 1
 
 [node name="ModificarButton" type="Button" parent="VBoxContainer"]
@@ -124,3 +130,4 @@ theme_override_font_sizes/font_size = 40
 text = "Modificar"
 
 [connection signal="pressed" from="VBoxContainer/Menu/GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ModificarButton" to="." method="_on_modificar_button_pressed"]
